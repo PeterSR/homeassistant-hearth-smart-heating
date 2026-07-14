@@ -1,0 +1,13 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up Hearth",
+        "description": "Click submit to set up Hearth."
+      }
+    },
+    "abort": {
+      "already_configured": "Hearth is already configured."
+    }
+  }
+}

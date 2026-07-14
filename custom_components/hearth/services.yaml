@@ -1,0 +1,126 @@
+set_area_override:
+  name: Set area override
+  description: Temporarily override an area's temperature.
+  fields:
+    area_id:
+      name: Area ID
+      description: The area to override.
+      required: true
+      selector:
+        text:
+    temperature:
+      name: Temperature
+      description: Target temperature.
+      required: true
+      selector:
+        number:
+          min: 4.0
+          max: 35.0
+          step: 0.5
+          unit_of_measurement: "°C"
+    until:
+      name: Until
+      description: "When to revert: 'next_transition', an ISO datetime, or empty for indefinite."
+      required: false
+      default: "next_transition"
+      selector:
+        text:
+
+clear_area_override:
+  name: Clear area override
+  description: Clear an area's temperature override.
+  fields:
+    area_id:
+      name: Area ID
+      description: The area to clear.
+      required: true
+      selector:
+        text:
+
+set_area_state:
+  name: Set area state
+  description: Set an area to home or away (chops the materialized schedule).
+  fields:
+    area_id:
+      name: Area ID
+      description: The area to change.
+      required: true
+      selector:
+        text:
+    state:
+      name: State
+      description: "Target state: home or away."
+      required: true
+      selector:
+        select:
+          options:
+            - home
+            - away
+
+set_area_enabled:
+  name: Set area enabled
+  description: Enable or disable an area.
+  fields:
+    area_id:
+      name: Area ID
+      description: The area to toggle.
+      required: true
+      selector:
+        text:
+    enabled:
+      name: Enabled
+      description: Whether the area should be active.
+      required: true
+      selector:
+        boolean:
+
+resume_schedule:
+  name: Resume schedule
+  description: Undo user overrides (home/away chops) and return to following the schedule template.
+  fields:
+    area_id:
+      name: Area ID
+      description: The area to resume.
+      required: true
+      selector:
+        text:
+
+sync_schedule:
+  name: Sync schedule
+  description: Re-apply the schedule group template to the area's materialized schedule. Use after editing the template.
+  fields:
+    area_id:
+      name: Area ID
+      description: The area to sync.
+      required: true
+      selector:
+        text:
+
+set_vacation:
+  name: Set vacation mode
+  description: Enable or disable vacation mode for all areas.
+  fields:
+    enabled:
+      name: Enabled
+      description: Whether to enable vacation mode.
+      required: true
+      selector:
+        boolean:
+    temperature:
+      name: Temperature
+      description: Target temperature during vacation (uses away temp if not set).
+      required: false
+      selector:
+        number:
+          min: 4.0
+          max: 35.0
+          step: 0.5
+          unit_of_measurement: "°C"
+
+trigger_home:
+  name: Trigger home
+  description: Set all areas to home state.
+
+trigger_away:
+  name: Trigger away
+  description: Set all areas to away state.

@@ -1,0 +1,17 @@
+{
+  "domain": "hearth",
+  "name": "Hearth",
+  "codeowners": ["@PeterSR"],
+  "config_flow": true,
+  "dependencies": [
+    "frontend",
+    "http",
+    "websocket_api"
+  ],
+  "documentation": "https://github.com/PeterSR/homeassistant-hearth-smart-heating",
+  "integration_type": "hub",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/PeterSR/homeassistant-hearth-smart-heating/issues",
+  "requirements": [],
+  "version": "0.15.0"
+}
