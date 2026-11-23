@@ -48,7 +48,10 @@ def _detect_zigbee_backend(hass: HomeAssistant, entity_id: str) -> str | None:
     # Check manufacturer/model
     manufacturer = (device.manufacturer or "").lower()
     model = (device.model or "").lower()
-    if "danfoss" not in manufacturer and "ally" not in model:
+
+    is_danfoss = "danfoss" in manufacturer and "ally" in model
+    is_popp = "popp" in manufacturer and "smart" in model
+    if not (is_danfoss or is_popp):
         return None
 
     # Determine which Zigbee backend (if any)
